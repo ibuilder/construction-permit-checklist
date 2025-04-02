@@ -1,0 +1,222 @@
+/* 
+ * Dashboard Specific Stylesheet for Construction Project Permit Checklist
+ * Contains styling for dashboard elements and visualizations
+ */
+
+ .dashboard-card {
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card .card-header {
+    background-color: rgba(13, 110, 253, 0.05);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(13, 110, 253, 0.1);
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.category-progress {
+    margin-bottom: 1.5rem;
+}
+
+.progress-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.progress-title .title {
+    font-weight: 500;
+}
+
+.progress-title .percentage {
+    font-weight: 600;
+}
+
+.progress {
+    height: 1rem;
+    border-radius: 0.5rem;
+    background-color: #e9ecef;
+}
+
+.chart-container {
+    height: 300px;
+    position: relative;
+}
+
+.status-legend {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.status-legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.status-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.pending-color {
+    background-color: #ffc107;
+}
+
+.inprogress-color {
+    background-color: #0dcaf0;
+}
+
+.approved-color {
+    background-color: #198754;
+}
+
+.notapplicable-color {
+    background-color: #6c757d;
+}
+
+.dashboard-table {
+    margin-top: 1rem;
+}
+
+.dashboard-table th {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.dashboard-table td {
+    vertical-align: middle;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-pending {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.badge-inprogress {
+    background-color: #d1ecf1;
+    color: #055160;
+}
+
+.badge-approved {
+    background-color: #d4edda;
+    color: #0f5132;
+}
+
+.badge-notapplicable {
+    background-color: #e2e3e5;
+    color: #41464b;
+}
+
+.timeline-container {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #0d6efd;
+}
+
+.timeline-date {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-content {
+    font-size: 0.875rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .stat-value {
+        font-size: 2rem;
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+    
+    .status-legend {
+        flex-wrap: wrap;
+    }
+    
+    .status-legend-item {
+        margin-bottom: 0.5rem;
+    }
+}

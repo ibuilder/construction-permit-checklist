@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Construction Permits</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">NCMoH Project Permits</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="checklist.html">Interactive Checklist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Project Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="resources.html">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <h1 class="section-header">Resources & Help</h1>
+        
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Using the Permit Checklist System</h5>
+                        <p>This permit checklist system is designed to help construction project teams track and manage all required permits, approvals, and inspections throughout the project lifecycle. Follow the steps below to get the most out of this tool:</p>
+                        
+                        <div class="accordion mt-3" id="helpAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Getting Started
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#helpAccordion">
+                                    <div class="accordion-body">
+                                        <ol>
+                                            <li>Navigate to the <a href="checklist.html">Interactive Checklist</a> page</li>
+                                            <li>Enter your project information in the Project Information card</li>
+                                            <li>Click "Save Project Info" to store your project details</li>
+                                            <li>Review all permit categories to identify which ones apply to your project</li>
+                                            <li>For each applicable permit item, assign responsibility and update status</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Managing Permit Items
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#helpAccordion">
+                                    <div class="accordion-body">
+                                        <p>For each permit item in the checklist:</p>
+                                        <ol>
+                                            <li>Click the "Edit" button to open the edit modal</li>
+                                            <li>Assign responsibility to a team member or organization</li>
+                                            <li>Set the current status:
+                                                <ul>
+                                                    <li><strong>Pending</strong> - Not yet started</li>
+                                                    <li><strong>In Progress</strong> - Application submitted or under review</li>
+                                                    <li><strong>Approved</strong> - Permit obtained or requirement fulfilled</li>
+                                                    <li><strong>Not Applicable</strong> - Item does not apply to your project</li>
+                                                </ul>
+                                            </li>
+                                            <li>Add cost estimates if available</li>
+                                            <li>Add notes about specific requirements, deadlines, or contacts</li>
+                                            <li>Click "Save Changes" to update the item</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Using the Dashboard
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#helpAccordion">
+                                    <div class="accordion-body">
+                                        <p>The <a href="dashboard.html">Project Dashboard</a> provides visual tracking of your permit progress:</p>
+                                        <ul>
+                                            <li>View overall project progress percentage</li>
+                                            <li>See status breakdown pie chart</li>
+                                            <li>Track progress by permit category</li>
+                                            <li>Monitor pending items that need attention</li>
+                                            <li>View recent activity and updates</li>
+                                            <li>Use the "Refresh Dashboard" button to update with the latest data</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Generating Reports
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#helpAccordion">
+                                    <div class="accordion-body">
+                                        <p>To generate a report of your project's permit status:</p>
+                                        <ol>
+                                            <li>Go to the <a href="checklist.html">Interactive Checklist</a></li>
+                                            <li>Click the "Generate Report" button in the Checklist Progress card</li>
+                                            <li>A JSON file containing all permit data will be downloaded</li>
+                                            <li>This report can be used for:
+                                                <ul>
+                                                    <li>Team meetings and updates</li>
+                                                    <li>Backing up your project data</li>
+                                                    <li>Sharing status with stakeholders</li>
+                                                    <li>Record-keeping and documentation</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Quick Links</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="checklist.html" class="text-decoration-none">
+                                    <i class="fas fa-tasks me-2"></i> Interactive Checklist
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="dashboard.html" class="text-decoration-none">
+                                    <i class="fas fa-chart-pie me-2"></i> Project Dashboard
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="permits-planchecks.html" class="text-decoration-none">
+                                    <i class="fas fa-clipboard-check me-2"></i> Permit & Plancheck Details
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="utilities.html" class="text-decoration-none">
+                                    <i class="fas fa-bolt me-2"></i> Utility Fees Details
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="special-approvals.html" class="text-decoration-none">
+                                    <i class="fas fa-file-signature me-2"></i> Special Approvals Details
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="testing-inspection.html" class="text-decoration-none">
+                                    <i class="fas fa-microscope me-2"></i> Testing & Inspection Details
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Need Help?</h5>
+                        <p>If you have questions or need assistance with using the permit checklist system, please contact our support team:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-envelope me-2"></i>
+                                <a href="mailto:support@ncmoh-permits.com">support@ncmoh-permits.com</a>
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-phone me-2"></i>
+                                <a href="tel:+11234567890">(123) 456-7890</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-comment me-2"></i>
+                                <a href="#" onclick="alert('Chat support will be available soon!')">Chat Support (Coming Soon)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Frequently Asked Questions</h5>
+                
+                <div class="accordion mt-3" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="false" aria-controls="faqCollapseOne">
+                                Is my data saved automatically?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseOne" class="accordion-collapse collapse" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, your project data is automatically saved to your browser's local storage whenever you make changes. However, this means the data is specific to the device and browser you are using. For backup purposes, we recommend generating and downloading a report periodically.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                                Can I add custom permit items to the checklist?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The current version does not support adding custom permit items. However, you can use the Notes field to track additional information for existing items. A future update will include functionality to add, edit, and customize permit items.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                                Can multiple team members access the same project?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The current version stores data locally in your browser, which means each user would have their own copy of the data. For team collaboration, consider implementing a cloud-based version of this application or regularly sharing the generated reports with team members.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                                How do I clear my project data and start over?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                To clear your project data and start a new project, you can clear your browser's local storage for this site. In most browsers, you can do this by:
+                                <ol>
+                                    <li>Opening the browser's Developer Tools (F12 or right-click and select "Inspect")</li>
+                                    <li>Going to the "Application" or "Storage" tab</li>
+                                    <li>Finding "Local Storage" in the sidebar</li>
+                                    <li>Right-clicking on the site URL and selecting "Clear"</li>
+                                </ol>
+                                After clearing the storage, refresh the page and you'll start with a clean slate.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                                Can I export my checklist to other formats like PDF or Excel?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Currently, the system exports data in JSON format. For PDF or Excel formats, we recommend opening the dashboard or checklist page and using your browser's print function (Ctrl+P or Cmd+P) to generate a PDF. Alternatively, you can import the JSON file into a spreadsheet program for further processing.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>NCMoH Project Permits</h5>
+                    <p>A comprehensive solution for tracking construction project permits and requirements.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">Home</a></li>
+                        <li><a href="checklist.html" class="text-white">Interactive Checklist</a></li>
+                        <li><a href="dashboard.html" class="text-white">Project Dashboard</a></li>
+                        <li><a href="resources.html" class="text-white">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:support@ncmoh-permits.com" class="text-white">support@ncmoh-permits.com</a></li>
+                        <li><a href="tel:+11234567890" class="text-white">(123) 456-7890</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 NCMoH Project Permits. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

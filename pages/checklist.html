@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Permit Checklist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">NCMoH Project Permits</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="checklist.html">Interactive Checklist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Project Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <h1 class="section-header">Interactive Permit Checklist</h1>
+        
+        <!-- Project Info and Progress -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Information</h5>
+                        <div class="mb-3">
+                            <label for="projectName" class="form-label">Project Name</label>
+                            <input type="text" class="form-control" id="projectName" placeholder="Enter project name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectLocation" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="projectLocation" placeholder="Enter project location">
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectManager" class="form-label">Project Manager</label>
+                            <input type="text" class="form-control" id="projectManager" placeholder="Enter project manager name">
+                        </div>
+                        <button class="btn btn-primary" onclick="saveProjectInfo()">Save Project Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Checklist Progress</h5>
+                        <div class="d-flex justify-content-center my-3">
+                            <span class="completed-count" id="completedCount">0</span>
+                            <span class="mx-2 align-self-center">/</span>
+                            <span class="total-count" id="totalCount">0</span>
+                        </div>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 0%" id="overallProgress">0%</div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fas fa-circle text-warning"></i> Pending: <span id="pendingCount">0</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-circle text-info"></i> In Progress: <span id="inProgressCount">0</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-circle text-success"></i> Approved: <span id="approvedCount">0</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary mt-3" onclick="generateReport()">Generate Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter and Search -->
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search permits...">
+                    <button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex">
+                    <select class="form-select me-2" id="filterStatus">
+                        <option value="all">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="approved">Approved</option>
+                        <option value="notapplicable">Not Applicable</option>
+                    </select>
+                    <button class="btn btn-outline-primary" id="resetFilters">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-tabs" id="permitTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="permit-tab" data-bs-toggle="tab" data-bs-target="#permit-items" type="button" role="tab" aria-controls="permit-items" aria-selected="true">Permit & Plancheck Items</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="utility-tab" data-bs-toggle="tab" data-bs-target="#utility-items" type="button" role="tab" aria-controls="utility-items" aria-selected="false">Utility Fees & Assessments</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="special-tab" data-bs-toggle="tab" data-bs-target="#special-items" type="button" role="tab" aria-controls="special-items" aria-selected="false">Special Approvals</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="testing-tab" data-bs-toggle="tab" data-bs-target="#testing-items" type="button" role="tab" aria-controls="testing-items" aria-selected="false">Testing & Inspection</button>
+            </li>
+        </ul>
+        
+        <!-- Tabs Content -->
+        <div class="tab-content" id="permitTabsContent">
+            <!-- Permit & Plancheck Items Tab -->
+            <div class="tab-pane fade show active" id="permit-items" role="tabpanel" aria-labelledby="permit-tab">
+                <table class="table table-hover" id="permitTable">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5%">#</th>
+                            <th scope="col" style="width: 30%">Permit Name</th>
+                            <th scope="col" style="width: 15%">Responsibility</th>
+                            <th scope="col" style="width: 15%">Status</th>
+                            <th scope="col" style="width: 20%">Notes</th>
+                            <th scope="col" style="width: 15%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Permit items will be populated with JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Utility Fees Tab -->
+            <div class="tab-pane fade" id="utility-items" role="tabpanel" aria-labelledby="utility-tab">
+                <table class="table table-hover" id="utilityTable">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5%">#</th>
+                            <th scope="col" style="width: 30%">Fee/Assessment Name</th>
+                            <th scope="col" style="width: 15%">Responsibility</th>
+                            <th scope="col" style="width: 15%">Status</th>
+                            <th scope="col" style="width: 20%">Notes</th>
+                            <th scope="col" style="width: 15%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Utility items will be populated with JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Special Approvals Tab -->
+            <div class="tab-pane fade" id="special-items" role="tabpanel" aria-labelledby="special-tab">
+                <table class="table table-hover" id="specialTable">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5%">#</th>
+                            <th scope="col" style="width: 30%">Approval/Requirement Name</th>
+                            <th scope="col" style="width: 15%">Responsibility</th>
+                            <th scope="col" style="width: 15%">Status</th>
+                            <th scope="col" style="width: 20%">Notes</th>
+                            <th scope="col" style="width: 15%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Special items will be populated with JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Testing & Inspection Tab -->
+            <div class="tab-pane fade" id="testing-items" role="tabpanel" aria-labelledby="testing-tab">
+                <table class="table table-hover" id="testingTable">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5%">#</th>
+                            <th scope="col" style="width: 30%">Testing/Inspection Name</th>
+                            <th scope="col" style="width: 15%">Responsibility</th>
+                            <th scope="col" style="width: 15%">Status</th>
+                            <th scope="col" style="width: 20%">Notes</th>
+                            <th scope="col" style="width: 15%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Testing items will be populated with JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Permit Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editItemId">
+                    <input type="hidden" id="editItemCategory">
+                    <div class="mb-3">
+                        <label for="editItemName" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" id="editItemName" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editResponsibility" class="form-label">Responsibility</label>
+                        <select class="form-select" id="editResponsibility">
+                            <option value="">Select Responsibility</option>
+                            <option value="Owner">Owner</option>
+                            <option value="Contractor">Contractor</option>
+                            <option value="Architect">Architect</option>
+                            <option value="Engineer">Engineer</option>
+                            <option value="Project Manager">Project Manager</option>
+                            <option value="Subcontractor">Subcontractor</option>
+                            <option value="Consultant">Consultant</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editStatus" class="form-label">Status</label>
+                        <select class="form-select" id="editStatus">
+                            <option value="pending">Pending</option>
+                            <option value="inprogress">In Progress</option>
+                            <option value="approved">Approved</option>
+                            <option value="notapplicable">Not Applicable</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editEstimate" class="form-label">Cost Estimate</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="editEstimate" placeholder="0.00">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editNotes" class="form-label">Notes</label>
+                        <textarea class="form-control" id="editNotes" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveChangesBtn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>NCMoH Project Permits</h5>
+                    <p>A comprehensive solution for tracking construction project permits and requirements.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">Home</a></li>
+                        <li><a href="checklist.html" class="text-white">Interactive Checklist</a></li>
+                        <li><a href="dashboard.html" class="text-white">Project Dashboard</a></li>
+                        <li><a href="resources.html" class="text-white">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:support@ncmoh-permits.com" class="text-white">support@ncmoh-permits.com</a></li>
+                        <li><a href="tel:+11234567890" class="text-white">(123) 456-7890</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 NCMoH Project Permits. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/checklist.js"></script>

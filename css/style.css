@@ -1,0 +1,150 @@
+/* 
+ * Main Stylesheet for Construction Project Permit Checklist
+ * Contains styling for all pages except dashboard-specific styles
+ */
+
+/* General Styles */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --pending-bg: #fff3cd;
+    --inprogress-bg: #d1ecf1;
+    --approved-bg: #d4edda;
+    --notapplicable-bg: #e2e3e5;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* Section Headers */
+.section-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--light-color);
+    padding: 4rem 0;
+    margin-bottom: 2rem;
+}
+
+/* Cards */
+.card {
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    background-color: var(--dark-color);
+    color: white;
+}
+
+/* Tables */
+.table th {
+    position: sticky;
+    top: 0;
+    background-color: var(--light-color);
+    z-index: 1;
+}
+
+/* Status Colors */
+.status-pending {
+    background-color: var(--pending-bg);
+}
+
+.status-inprogress {
+    background-color: var(--inprogress-bg);
+}
+
+.status-approved {
+    background-color: var(--approved-bg);
+}
+
+.status-notapplicable {
+    background-color: var(--notapplicable-bg);
+}
+
+/* Checklist Specific Styles */
+.tab-content {
+    padding-top: 1.5rem;
+}
+
+.permit-name {
+    font-weight: 500;
+}
+
+.input-group-text {
+    background-color: var(--light-color);
+}
+
+.action-buttons .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.progress {
+    height: 1.5rem;
+}
+
+.progress-bar {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.form-select, .form-control {
+    font-size: 0.875rem;
+}
+
+.completed-count {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--success-color);
+}
+
+.total-count {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Search and Filter */
+.filterDropdown {
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .table {
+        font-size: 0.875rem;
+    }
+}
